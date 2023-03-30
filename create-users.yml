@@ -8,7 +8,6 @@
       user:
         name: dev
         password: "dev"
-        group: developers
         home: /home/dev
         shell: /bin/bash
 
@@ -19,7 +18,6 @@
       user:
         name: test
         password: "test"
-        group: testers
         home: /home/test
         shell: /bin/bash
 
@@ -30,7 +28,6 @@
       user:
         name: sim
         password: "sim"
-        group: simulations
         home: /home/sim
         shell: /bin/bash
 
