@@ -1,0 +1,38 @@
+- name: Create Linux Users
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: Create dev user
+      user:
+        name: dev
+        password: "dev"
+        group: developers
+        home: /home/dev
+        shell: /bin/bash
+
+    - name: Update xdg-user-dirs for dev user
+      shell: su - dev -c "xdg-user-dirs-update"
+
+    - name: Create test user
+      user:
+        name: test
+        password: "test"
+        group: testers
+        home: /home/test
+        shell: /bin/bash
+
+    - name: Update xdg-user-dirs for test user
+      shell: su - test -c "xdg-user-dirs-update"
+
+    - name: Create sim user
+      user:
+        name: sim
+        password: "sim"
+        group: simulations
+        home: /home/sim
+        shell: /bin/bash
+
+    - name: Update xdg-user-dirs for sim user
+      shell: su - sim -c "xdg-user-dirs-update"

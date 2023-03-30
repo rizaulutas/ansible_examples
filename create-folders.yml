@@ -1,0 +1,92 @@
+- name: Create Folders
+  hosts: "*"
+  remote_user: root
+  become: true
+
+  vars:
+    users:
+      - name: dev
+        release_folder: /home/dev/application/release
+        cots_folder: /home/dev/application/cots
+        data_folder: /home/dev/application/data
+      - name: test
+        release_folder: /home/test/application/release
+        cots_folder: /home/test/application/cots
+        data_folder: /home/test/application/data
+      - name: sim
+        release_folder: /home/sim/application/release
+        cots_folder: /home/sim/application/cots
+        data_folder: /home/sim/application/data
+
+  tasks:
+    - name: Create release folder for dev
+      file:
+        path: "{{ users[0].release_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[0].name }}"
+        group: "{{ users[0].name }}"
+
+    - name: Create cots folder for dev
+      file:
+        path: "{{ users[0].cots_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[0].name }}"
+        group: "{{ users[0].name }}"
+
+    - name: Create data folder for dev
+      file:
+        path: "{{ users[0].data_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[0].name }}"
+        group: "{{ users[0].name }}"
+
+    - name: Create release folder for test
+      file:
+        path: "{{ users[1].release_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[1].name }}"
+        group: "{{ users[1].name }}"
+
+    - name: Create cots folder for test
+      file:
+        path: "{{ users[1].cots_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[1].name }}"
+        group: "{{ users[1].name }}"
+
+    - name: Create data folder for test
+      file:
+        path: "{{ users[1].data_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[1].name }}"
+        group: "{{ users[1].name }}"
+
+    - name: Create release folder for sim
+      file:
+        path: "{{ users[2].release_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[2].name }}"
+        group: "{{ users[2].name }}"
+
+    - name: Create cots folder for sim
+      file:
+        path: "{{ users[2].cots_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[2].name }}"
+        group: "{{ users[2].name }}"
+
+    - name: Create data folder for sim
+      file:
+        path: "{{ users[2].data_folder }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ users[2].name }}"
+        group: "{{ users[2].name }}"
